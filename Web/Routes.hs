@@ -13,3 +13,6 @@ instance AutoRoute UsersController
 
 
 
+
+instance AutoRoute CommentsController
+

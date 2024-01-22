@@ -19,6 +19,7 @@ instance View WelcomeView where
                      Your new application is up and running.
                   </p>
                   <a href={NewSessionAction}>Login</a>
+                  <p>{message}</p>
                   <p><a class="js-delete js-delete-no-confirm" href={DeleteSessionAction}>Logout</a></p>
                   <p>
                       <a
@@ -40,4 +41,9 @@ instance View WelcomeView where
                  You can modify this start page by making changes to "./Web/View/Static/Welcome.hs".
               </p>
          </div> 
-|]
+    |] 
+        where
+            message = do 
+                case currentUserOrNothing of
+                        Just currentUser -> "Hello " <> currentUser.email :: Text
+                        Nothing -> "Hi there" :: Text 

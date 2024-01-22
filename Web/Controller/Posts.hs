@@ -5,6 +5,7 @@ import Web.View.Posts.Index
 import Web.View.Posts.New
 import Web.View.Posts.Edit
 import Web.View.Posts.Show
+import Web.Controller.Comments
 
 instance Controller PostsController where
     action PostsAction = do
@@ -17,6 +18,7 @@ instance Controller PostsController where
 
     action ShowPostAction { postId } = do
         post <- fetch postId
+            >>= fetchRelated #comments
         render ShowView { .. }
 
     action EditPostAction { postId } = do

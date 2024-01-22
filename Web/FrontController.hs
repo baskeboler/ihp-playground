@@ -7,6 +7,7 @@ import Web.Controller.Prelude
 import Web.View.Layout (defaultLayout)
 
 -- Controller Imports
+import Web.Controller.Comments
 import Web.Controller.Users
 import Web.Controller.Posts
 import Web.Controller.Static
@@ -17,6 +18,7 @@ instance FrontController WebApplication where
         [ startPage WelcomeAction
         , parseRoute @SessionsController -- <-- sessions stuff
         -- Generator Marker
+        , parseRoute @CommentsController
         , parseRoute @UsersController
         , parseRoute @PostsController
         ]
