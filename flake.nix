@@ -28,6 +28,7 @@
                         wai
                         text
                         mmark
+                        aeson
                     ];
                 };
             };
